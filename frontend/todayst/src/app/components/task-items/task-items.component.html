@@ -1,0 +1,32 @@
+<div class="list-group p-3">
+  <div class="d-flex gap-2 mb-2" *ngFor="let task of tasks">
+    <div *ngIf="task.status; then thenBlock; else elseBlock"></div>
+    <ng-template #thenBlock>
+      <label
+        class="d-flex list-group-item list-group-item-action list-group-item-dark flex-grow-1 rounded align-items-center"
+        (click)="onUpdate(task.id, !task.status)"
+      >
+        <input class="form-check-input me-1" type="checkbox" checked />
+        <div class="text-decoration-line-through flex-grow-1">{{ task.task }}</div>
+        <span class="badge bg-secondary">{{ task.time }}</span>
+      </label>
+    </ng-template>
+    <ng-template #elseBlock>
+      <label
+        class="d-flex list-group-item list-group-item-action flex-grow-1 rounded align-items-center"
+        (click)="onUpdate(task.id, !task.status)"
+      >
+        <input class="form-check-input me-1" type="checkbox" value="" />
+        <div class="flex-grow-1">{{ task.task }}</div>
+        <span class="badge bg-success">{{ task.time }}</span>
+      </label>
+    </ng-template>
+    <div class="d-flex gap-2">
+      <app-task-modal titleOfModal="Edit Task" idOfModal="{{ 'edit-task' + task.id }}" [task]="task"></app-task-modal>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#edit-task' + task.id">
+        Atualizar
+      </button>
+      <button type="button" class="btn btn-danger" (click)="onRemove(task.id)">Deletar</button>
+    </div>
+  </div>
+</div>

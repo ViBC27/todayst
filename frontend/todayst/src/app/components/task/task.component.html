@@ -1,0 +1,16 @@
+<div class="container col-lg-7 mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header d-flex align-items-center">
+          <div class="d-flex gap-2 flex-grow-1">
+            <i-feather name="check-square"></i-feather>
+            <p class="mb-0">Todayst</p>
+          </div>
+        </div>
+        <app-task-form></app-task-form>
+        <app-task-items *ngIf="tasks.length > 0" [tasks]="tasks"></app-task-items>
+      </div>
+    </div>
+  </div>
+</div>

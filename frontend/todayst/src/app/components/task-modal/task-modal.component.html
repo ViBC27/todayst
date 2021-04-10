@@ -1,0 +1,29 @@
+<div class="modal fade" id="{{ idOfModal }}" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ titleOfModal }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="p-3">
+          <form class="d-flex gap-2 align-items-center" [formGroup]="form">
+            <div class="form-floating col-lg-10">
+              <input type="text" class="form-control" formControlName="task" id="task" placeholder="Your task" value="{{ task.task }}" />
+              <label for="task">{{ task.task }}</label>
+            </div>
+            <div class="form-floating col-lg-2">
+              <input type="text" class="form-control" formControlName="time" id="time" placeholder="Duration" value="{{ task.time }}" />
+              <label for="time">{{ task.time }}</label>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onRemove()">Deletar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onUpdate()">Atualizar</button>
+      </div>
+    </div>
+  </div>
+</div>

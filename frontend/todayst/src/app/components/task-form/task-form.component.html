@@ -1,0 +1,15 @@
+<div class="p-3">
+  <form class="d-flex gap-2 align-items-center" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-floating col-lg-8">
+      <input type="text" class="form-control" formControlName="task" id="task" placeholder="Tarefa" />
+      <label for="task">Tarefa</label>
+    </div>
+    <div class="form-floating col-lg-2">
+      <input type="text" class="form-control" formControlName="time" id="time" placeholder="Duração" />
+      <label for="time">Duração</label>
+    </div>
+    <div class="form">
+      <button type="submit" class="btn btn-lg btn-primary">Salvar</button>
+    </div>
+  </form>
+</div>
